@@ -116,6 +116,19 @@ if __name__ == "__main__":
             seconds_counter += 1
         print('感谢使用!')
     elif mode_chosen == 'B':
+        for i in range(len(instance_id)):
+            start_aws(instance_id, i)
+        time.sleep(20)
+        for i in range(len(instance_id)):
+            print('实例{0:s}现在可以使用,地址为{1:s}'.format(instance_id[i], ip_active_aws(instance_id, i)))
+        print('点A关掉所有的实例 再开要重启')
+        close_chose = input()
+        if close_chose == 'A':
+            for i in range(len(instance_id)):
+                stop_aws(instance_id, i)
+    else:
+        print('错误')
+
 
 
 
